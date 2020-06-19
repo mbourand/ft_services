@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps
+  labels:
+    app: ftps-app
+spec:
+  type: NodePort
+  selector:
+    app: ftps-app
+  ports:
+  - port: 21
+    targetPort: 21
+    nodePort: 21
+    name: ftps
+  - port: 21000
+    targetPort: 21000
+    nodePort: 21000
+    name: ftps-passive
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps-app
+spec:
+  selector:
+    matchLabels:
+      app: ftps-app
+  template:
+    metadata:
+      name: ftps
+      labels:
+        app: ftps-app
+    spec:
+      containers:
+      - name: ftps
+        image: mbourand/ftps:1.0
+        imagePullPolicy: Never

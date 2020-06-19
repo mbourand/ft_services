@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx-app
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: mbourand/nginx:1.0
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        - containerPort: 22
+          name: ssh
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx-app
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    targetPort: 443
+    nodePort: 443
+    protocol: TCP
+    name: https
+  - port: 22
+    targetPort: 22
+    nodePort: 22
+    protocol: TCP
+    name: ssh
+  selector:
+    app: nginx

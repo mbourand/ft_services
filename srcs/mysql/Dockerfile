@@ -1,0 +1,13 @@
+FROM alpine
+
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+	apk update && \
+	apk add mysql mysql-client telegraf
+
+COPY srcs/telegraf.conf /telegraf.conf
+COPY srcs/setup-mysql.sh .
+COPY srcs/run-mysql.sh .
+
+EXPOSE 3306
+
+CMD ["sh", "run-mysql.sh"]
