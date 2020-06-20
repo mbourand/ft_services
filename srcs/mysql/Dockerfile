@@ -4,6 +4,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 	apk update && \
 	apk add mysql mysql-client telegraf
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/telegraf.conf /telegraf.conf
 COPY srcs/setup-mysql.sh .
 COPY srcs/run-mysql.sh .

@@ -63,6 +63,7 @@ apply_configs()
 	kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 	kubectl apply -f srcs/influxdb/influxdb.yaml
 	kubectl apply -f srcs/grafana/grafana.yaml
+	kubectl apply -f srcs/ingress.yaml
 }
 
 check_requirements
@@ -72,4 +73,4 @@ if [ ! -z $1 ] && [ $1 = "clean" ]; then
 fi
 build_images
 apply_configs
-# minikube dashboard
+minikube dashboard &

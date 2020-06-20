@@ -13,6 +13,7 @@ COPY srcs/minikube_ip /minikube_ip
 
 RUN tar -xf phpMyAdmin-4.9.5-all-languages.tar.gz
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/telegraf.conf /telegraf.conf
 COPY srcs/config.inc.php phpmyadmin/config.inc.php
 

@@ -24,6 +24,7 @@ COPY srcs/telegraf.conf /telegraf.conf
 COPY srcs/run-nginx.sh .
 COPY srcs/index.html /www/index.html
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
+COPY srcs/liveness.sh /liveness.sh
 
 # http/s ports
 EXPOSE 80 443 22

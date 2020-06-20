@@ -38,3 +38,10 @@ spec:
       - name: ftps
         image: mbourand/ftps:1.0
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /liveness.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5

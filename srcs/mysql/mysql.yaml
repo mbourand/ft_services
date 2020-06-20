@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service
+  name: mysql
   labels:
     app: mysql-app
 spec:
@@ -54,6 +54,13 @@ spec:
         volumeMounts:
         - name: mysql
           mountPath: /mysql
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /liveness.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5
       volumes:
       - name: mysql
         persistentVolumeClaim:

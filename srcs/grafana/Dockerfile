@@ -7,6 +7,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 
 RUN tar -zxf grafana-7.0.3.linux-amd64.tar.gz
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/grafana.db /grafana-7.0.3/data/grafana.db
 COPY srcs/run-grafana.sh .
 COPY srcs/telegraf.conf /telegraf.conf

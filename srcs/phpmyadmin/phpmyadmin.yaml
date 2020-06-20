@@ -36,3 +36,10 @@ spec:
         ports:
         - containerPort: 5000
           name: http
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /liveness.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5

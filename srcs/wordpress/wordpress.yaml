@@ -36,3 +36,10 @@ spec:
         image: mbourand/wordpress:1.0
         ports:
         - containerPort: 5050
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /liveness.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5

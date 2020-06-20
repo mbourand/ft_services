@@ -8,6 +8,7 @@ COPY srcs/latest.tar.gz .
 RUN tar -xf latest.tar.gz
 COPY srcs/wp-config.php /wordpress/wp-config.php
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/telegraf.conf /telegraf.conf
 COPY srcs/minikube_ip /minikube_ip
 COPY srcs/setup-wordpress.sh .

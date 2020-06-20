@@ -4,6 +4,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 	apk update && \
 	apk add influxdb telegraf
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/run-influxdb.sh .
 COPY srcs/telegraf.conf /telegraf.conf
 

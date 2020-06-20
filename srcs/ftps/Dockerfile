@@ -12,6 +12,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout /etc/ssl/private
 
 RUN { echo "password"; echo "password"; } | adduser user
 
+COPY srcs/liveness.sh /liveness.sh
 COPY srcs/minikube_ip .
 COPY srcs/run-ftps.sh .
 COPY srcs/setup-ftps.sh .
