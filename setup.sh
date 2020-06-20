@@ -73,4 +73,4 @@ if [ ! -z $1 ] && [ $1 = "clean" ]; then
 fi
 build_images
 apply_configs
-minikube dashboard &
+minikube dashboard

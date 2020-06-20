@@ -3,13 +3,12 @@ FROM alpine
 # install nginx and openssl
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
 	apk update && \
-	apk add openrc --no-cache && \
-	apk add openssl openssh nginx telegraf && \
+	apk add openrc openssl openssh nginx telegraf && \
 	mkdir -p /run/nginx && \
 	mkdir /www && \
-	adduser -D -g 'www' www && \
-	chown -R www:www /var/lib/nginx && \
-	chown -R www:www /www && \
+	adduser -D www && \
+	chown -R www /var/lib/nginx && \
+	chown -R www /www && \
 	adduser -D user && \
 	echo "user:password" | chpasswd
 
