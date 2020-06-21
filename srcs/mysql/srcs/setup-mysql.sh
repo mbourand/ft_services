@@ -11,3 +11,5 @@ echo "CREATE USER 'pma'@'%' IDENTIFIED BY 'pmapass';" | mysql -u root --skip-pas
 echo "GRANT ALL ON phpmyadmin.* TO 'pma'@'%' IDENTIFIED BY 'password';" | mysql -u root --skip-password && \
 echo "GRANT ALL ON wordpress.* TO 'pma'@'%' IDENTIFIED BY 'password';" | mysql -u root --skip-password && \
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+
+mysql wordpress -u root --skip-password < /wordpress.sql

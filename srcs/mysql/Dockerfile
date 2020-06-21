@@ -8,6 +8,7 @@ COPY srcs/liveness.sh /liveness.sh
 COPY srcs/telegraf.conf /telegraf.conf
 COPY srcs/setup-mysql.sh .
 COPY srcs/run-mysql.sh .
+COPY srcs/wordpress.sql /wordpress.sql
 
 EXPOSE 3306
 
