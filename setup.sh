@@ -73,4 +73,5 @@ if [ ! -z $1 ] && [ $1 = "clean" ]; then
 fi
 build_images
 apply_configs
+echo -e "\e[1;92mIP : $CLUSTER_IP\e[39m"
 minikube dashboard
